@@ -228,6 +228,8 @@ namespace Rosreestr_Info
             //Проверяем на ошибку
             if (dtInfo.Columns[0].ColumnName != "error")
             {
+
+                FillDetailsListView(dtInfo);
                 //tbx_p_cad_stoim.Text = Format(dtInfo(0)("p_stoim"), "C2")
             //tbx_p_date_stoim.Text = dtInfo(0)("p_date_stoim")
             //tbx_p_area.Text = Format(dtInfo(0)("p_area"), "N2")
@@ -255,5 +257,35 @@ namespace Rosreestr_Info
             UpdateStatus("Готово", Cursors.Arrow);
 
         }
+        private void FillDetailsListView(System.Data.DataTable dt)
+        {
+            System.Globalization.NumberFormatInfo nfi = new System.Globalization.CultureInfo("ru-RU",true).NumberFormat;
+            nfi.NumberGroupSeparator = " ";
+            lvDetails.Items.Clear();
+            foreach (DataColumn col in dt.Columns)
+            {
+                ListViewItem lvi = new ListViewItem(col.Caption);
+                if (col.DataType == typeof(System.DateTime)) {
+                    DataRow row = dt.Rows[0];
+                    DateTime d_val = new DateTime();
+                    if (row[col.ColumnName].ToString() != "")
+                    {
+                        d_val = (DateTime)row[col.ColumnName];
+                        lvi.SubItems.Add(d_val.ToString("dd.MM.yyyy"));
+                    }
+                } else if (col.DataType == typeof(System.Decimal)) {
+                    Decimal d_val = new Decimal();
+                    if (dt.Rows[0][col.ColumnName].ToString() != "")
+                    {
+                       d_val = (Decimal)dt.Rows[0][col.ColumnName];
+                        lvi.SubItems.Add(d_val.ToString("N2", nfi));
+                    }
+                }
+                else { lvi.SubItems.Add(dt.Rows[0][col.ColumnName].ToString()); }
+                
+                this.lvDetails.Items.Add(lvi);
+            }
+        }
+
     }
 }

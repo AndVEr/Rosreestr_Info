@@ -12,7 +12,7 @@
   <xs:element name="online_data" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="online_data" msprop:Generator_UserDSName="online_data">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Cadastral_info" msprop:Generator_TableClassName="Cadastral_infoDataTable" msprop:Generator_TableVarName="tableCadastral_info" msprop:Generator_RowChangedName="Cadastral_infoRowChanged" msprop:Generator_TablePropName="Cadastral_info" msprop:Generator_RowDeletingName="Cadastral_infoRowDeleting" msprop:Generator_RowChangingName="Cadastral_infoRowChanging" msprop:Generator_RowEvHandlerName="Cadastral_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="Cadastral_infoRowDeleted" msprop:Generator_RowClassName="Cadastral_infoRow" msprop:Generator_UserTableName="Cadastral_info" msprop:Generator_RowEvArgName="Cadastral_infoRowChangeEvent">
+        <xs:element name="Cadastral_info" msprop:Generator_TableClassName="Cadastral_infoDataTable" msprop:Generator_TableVarName="tableCadastral_info" msprop:Generator_TablePropName="Cadastral_info" msprop:Generator_RowDeletingName="Cadastral_infoRowDeleting" msprop:Generator_RowChangingName="Cadastral_infoRowChanging" msprop:Generator_RowEvHandlerName="Cadastral_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="Cadastral_infoRowDeleted" msprop:Generator_UserTableName="Cadastral_info" msprop:Generator_RowChangedName="Cadastral_infoRowChanged" msprop:Generator_RowEvArgName="Cadastral_infoRowChangeEvent" msprop:Generator_RowClassName="Cadastral_infoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="req_cadastral" msdata:Caption="Кадастровый номер в запросе" msprop:Generator_ColumnVarNameInTable="columnreq_cadastral" msprop:Generator_ColumnPropNameInRow="req_cadastral" msprop:Generator_ColumnPropNameInTable="req_cadastralColumn" msprop:Generator_UserColumnName="req_cadastral" type="xs:string" minOccurs="0" />
@@ -30,7 +30,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Property" msprop:Generator_TableClassName="PropertyDataTable" msprop:Generator_TableVarName="tableProperty" msprop:Generator_RowChangedName="PropertyRowChanged" msprop:Generator_TablePropName="_Property" msprop:Generator_RowDeletingName="PropertyRowDeleting" msprop:Generator_RowChangingName="PropertyRowChanging" msprop:Generator_RowEvHandlerName="PropertyRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertyRowDeleted" msprop:Generator_RowClassName="PropertyRow" msprop:Generator_UserTableName="Property" msprop:Generator_RowEvArgName="PropertyRowChangeEvent">
+        <xs:element name="Property" msprop:Generator_TableClassName="PropertyDataTable" msprop:Generator_TableVarName="tableProperty" msprop:Generator_TablePropName="_Property" msprop:Generator_RowDeletingName="PropertyRowDeleting" msprop:Generator_RowChangingName="PropertyRowChanging" msprop:Generator_RowEvHandlerName="PropertyRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertyRowDeleted" msprop:Generator_UserTableName="Property" msprop:Generator_RowChangedName="PropertyRowChanged" msprop:Generator_RowEvArgName="PropertyRowChangeEvent" msprop:Generator_RowClassName="PropertyRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="req_cadastral" msdata:Caption="Кадастровый номер в запросе" msprop:Generator_ColumnVarNameInTable="columnreq_cadastral" msprop:Generator_ColumnPropNameInRow="req_cadastral" msprop:Generator_ColumnPropNameInTable="req_cadastralColumn" msprop:Generator_UserColumnName="req_cadastral" type="xs:string" minOccurs="0" />
@@ -48,11 +48,11 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="rosreestr_info" msprop:Generator_TableClassName="rosreestr_infoDataTable" msprop:Generator_TableVarName="tablerosreestr_info" msprop:Generator_RowChangedName="rosreestr_infoRowChanged" msprop:Generator_TablePropName="rosreestr_info" msprop:Generator_RowDeletingName="rosreestr_infoRowDeleting" msprop:Generator_RowChangingName="rosreestr_infoRowChanging" msprop:Generator_RowEvHandlerName="rosreestr_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="rosreestr_infoRowDeleted" msprop:Generator_RowClassName="rosreestr_infoRow" msprop:Generator_UserTableName="rosreestr_info" msprop:Generator_RowEvArgName="rosreestr_infoRowChangeEvent">
+        <xs:element name="rosreestr_info" msprop:Generator_TableClassName="rosreestr_infoDataTable" msprop:Generator_TableVarName="tablerosreestr_info" msprop:Generator_TablePropName="rosreestr_info" msprop:Generator_RowDeletingName="rosreestr_infoRowDeleting" msprop:Generator_RowChangingName="rosreestr_infoRowChanging" msprop:Generator_RowEvHandlerName="rosreestr_infoRowChangeEventHandler" msprop:Generator_RowDeletedName="rosreestr_infoRowDeleted" msprop:Generator_UserTableName="rosreestr_info" msprop:Generator_RowChangedName="rosreestr_infoRowChanged" msprop:Generator_RowEvArgName="rosreestr_infoRowChangeEvent" msprop:Generator_RowClassName="rosreestr_infoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cadastral" msdata:Caption="Кад.номер" msprop:Generator_ColumnVarNameInTable="columncadastral" msprop:Generator_ColumnPropNameInRow="cadastral" msprop:Generator_ColumnPropNameInTable="cadastralColumn" msprop:Generator_UserColumnName="cadastral" type="xs:string" minOccurs="0" />
-              <xs:element name="checked" msdata:Caption="Проверен" msprop:Generator_ColumnVarNameInTable="columnchecked" msprop:Generator_ColumnPropNameInRow="checked" msprop:Generator_ColumnPropNameInTable="checkedColumn" msprop:Generator_UserColumnName="checked" type="xs:string" minOccurs="0" />
+              <xs:element name="checked" msdata:Caption="Проверен" msprop:Generator_ColumnVarNameInTable="columnchecked" msprop:Generator_ColumnPropNameInRow="_checked" msprop:Generator_ColumnPropNameInTable="checkedColumn" msprop:Generator_UserColumnName="checked" type="xs:string" minOccurs="0" />
               <xs:element name="p_cadastral" msdata:Caption="[Росреестр]Кадастровый номер" msprop:Generator_ColumnVarNameInTable="columnp_cadastral" msprop:Generator_ColumnPropNameInRow="p_cadastral" msprop:Generator_ColumnPropNameInTable="p_cadastralColumn" msprop:Generator_UserColumnName="p_cadastral" type="xs:string" minOccurs="0" />
               <xs:element name="p_stoim" msdata:Caption="[Росреестр]Кадастровая стоимость" msprop:Generator_ColumnVarNameInTable="columnp_stoim" msprop:Generator_ColumnPropNameInRow="p_stoim" msprop:Generator_ColumnPropNameInTable="p_stoimColumn" msprop:Generator_UserColumnName="p_stoim" type="xs:decimal" minOccurs="0" />
               <xs:element name="p_date_stoim" msdata:Caption="[Росреестр]Дата установления кад.стоимости" msprop:Generator_ColumnVarNameInTable="columnp_date_stoim" msprop:Generator_ColumnPropNameInRow="p_date_stoim" msprop:Generator_ColumnPropNameInTable="p_date_stoimColumn" msprop:Generator_UserColumnName="p_date_stoim" type="xs:dateTime" minOccurs="0" />
@@ -65,12 +65,17 @@
               <xs:element name="r_util" msdata:Caption="Использование по документу" msprop:Generator_ColumnVarNameInTable="columnr_util" msprop:Generator_ColumnPropNameInRow="r_util" msprop:Generator_ColumnPropNameInTable="r_utilColumn" msprop:Generator_UserColumnName="r_util" type="xs:string" minOccurs="0" />
               <xs:element name="r_date_stoim" msdata:Caption="Дата начала действия стоимости" msprop:Generator_ColumnVarNameInTable="columnr_date_stoim" msprop:Generator_ColumnPropNameInRow="r_date_stoim" msprop:Generator_ColumnPropNameInTable="r_date_stoimColumn" msprop:Generator_UserColumnName="r_date_stoim" type="xs:dateTime" minOccurs="0" />
               <xs:element name="r_checked" msdata:Caption="Запрошен из R/3" msprop:Generator_ColumnVarNameInTable="columnr_checked" msprop:Generator_ColumnPropNameInRow="r_checked" msprop:Generator_ColumnPropNameInTable="r_checkedColumn" msprop:Generator_UserColumnName="r_checked" type="xs:string" minOccurs="0" />
-              <xs:element name="p_status" msprop:Generator_ColumnVarNameInTable="columnp_status" msprop:Generator_ColumnPropNameInRow="p_status" msprop:Generator_ColumnPropNameInTable="p_statusColumn" msprop:Generator_UserColumnName="p_status" type="xs:string" minOccurs="0" />
-              <xs:element name="p_status_str" msprop:Generator_ColumnVarNameInTable="columnp_status_str" msprop:Generator_ColumnPropNameInRow="p_status_str" msprop:Generator_ColumnPropNameInTable="p_status_strColumn" msprop:Generator_UserColumnName="p_status_str" type="xs:string" minOccurs="0" />
+              <xs:element name="p_status" msdata:Caption="Статус в ЕГРН" msprop:Generator_ColumnVarNameInTable="columnp_status" msprop:Generator_ColumnPropNameInRow="p_status" msprop:Generator_ColumnPropNameInTable="p_statusColumn" msprop:Generator_UserColumnName="p_status" type="xs:string" minOccurs="0" />
+              <xs:element name="p_status_str" msdata:Caption="Статус в ЕГРН(текст)" msprop:Generator_ColumnVarNameInTable="columnp_status_str" msprop:Generator_ColumnPropNameInRow="p_status_str" msprop:Generator_ColumnPropNameInTable="p_status_strColumn" msprop:Generator_UserColumnName="p_status_str" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//rosreestr_info" />
+      <xs:field xpath="id" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

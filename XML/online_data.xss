@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:Cadastral_info" ZOrder="3" X="77" Y="38" Height="266" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="262" />
     <Shape ID="DesignTable:Property" ZOrder="2" X="250" Y="40" Height="266" Width="156" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="262" />
-    <Shape ID="DesignTable:rosreestr_info" ZOrder="1" X="434" Y="37" Height="372" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="22" SplitterPosition="368" />
+    <Shape ID="DesignTable:rosreestr_info" ZOrder="1" X="481" Y="41" Height="372" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="368" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

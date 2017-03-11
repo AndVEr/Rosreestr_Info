@@ -1208,6 +1208,8 @@ namespace Rosreestr_Info.XML {
             
             private global::System.Data.DataColumn columnp_status_str;
             
+            private global::System.Data.DataColumn columnid;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public rosreestr_infoDataTable() {
@@ -1371,6 +1373,14 @@ namespace Rosreestr_Info.XML {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1440,7 +1450,8 @@ namespace Rosreestr_Info.XML {
                         r_date_stoim,
                         r_checked,
                         p_status,
-                        p_status_str};
+                        p_status_str,
+                        null};
                 rowrosreestr_infoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrosreestr_infoRow);
                 return rowrosreestr_infoRow;
@@ -1479,6 +1490,7 @@ namespace Rosreestr_Info.XML {
                 this.columnr_checked = base.Columns["r_checked"];
                 this.columnp_status = base.Columns["p_status"];
                 this.columnp_status_str = base.Columns["p_status_str"];
+                this.columnid = base.Columns["id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1519,6 +1531,10 @@ namespace Rosreestr_Info.XML {
                 base.Columns.Add(this.columnp_status);
                 this.columnp_status_str = new global::System.Data.DataColumn("p_status_str", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp_status_str);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, false));
                 this.columncadastral.Caption = "Кад.номер";
                 this.columnchecked.Caption = "Проверен";
                 this.columnp_cadastral.Caption = "[Росреестр]Кадастровый номер";
@@ -1533,6 +1549,11 @@ namespace Rosreestr_Info.XML {
                 this.columnr_util.Caption = "Использование по документу";
                 this.columnr_date_stoim.Caption = "Дата начала действия стоимости";
                 this.columnr_checked.Caption = "Запрошен из R/3";
+                this.columnp_status.Caption = "Статус в ЕГРН";
+                this.columnp_status_str.Caption = "Статус в ЕГРН(текст)";
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = 1;
+                this.columnid.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2633,6 +2654,22 @@ namespace Rosreestr_Info.XML {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id {
+                get {
+                    try {
+                        return ((int)(this[this.tablerosreestr_info.idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'id\' в таблице \'rosreestr_info\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerosreestr_info.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscadastralNull() {
                 return this.IsNull(this.tablerosreestr_info.cadastralColumn);
             }
@@ -2821,6 +2858,18 @@ namespace Rosreestr_Info.XML {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setp_status_strNull() {
                 this[this.tablerosreestr_info.p_status_strColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsidNull() {
+                return this.IsNull(this.tablerosreestr_info.idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetidNull() {
+                this[this.tablerosreestr_info.idColumn] = global::System.Convert.DBNull;
             }
         }
         
