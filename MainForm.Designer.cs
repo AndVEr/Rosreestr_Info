@@ -124,6 +124,7 @@
             this.btnStartAll.Name = "btnStartAll";
             this.btnStartAll.Size = new System.Drawing.Size(36, 36);
             this.btnStartAll.Text = "Проверить все (Росреестр)";
+            this.btnStartAll.Click += new System.EventHandler(this.btnStartAll_Click);
             // 
             // btnExport
             // 
@@ -255,7 +256,7 @@
             this.cntMenuLV.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuGetInfoByCadastral});
             this.cntMenuLV.Name = "cntMenuLV";
-            this.cntMenuLV.Size = new System.Drawing.Size(224, 48);
+            this.cntMenuLV.Size = new System.Drawing.Size(224, 26);
             // 
             // mnuGetInfoByCadastral
             // 
@@ -328,6 +329,8 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Справочные сведения Росреестра";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.tsMain.ResumeLayout(false);

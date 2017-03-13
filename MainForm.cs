@@ -22,6 +22,7 @@ namespace Rosreestr_Info
 
         public System.Data.DataTable dtCadList;
         public string cur_cadastral;
+        public int cur_index;
 
         private void mnuImportList_Click(object sender, EventArgs e)
         {
@@ -215,11 +216,24 @@ namespace Rosreestr_Info
         {
             ListView lv = (ListView)sender;
             cur_cadastral = lv.FocusedItem.Text;
+            cur_index = lv.FocusedItem.Index;
+            XML.online_data.rosreestr_infoDataTable dt = new XML.online_data.rosreestr_infoDataTable();
+            DataRow dr = dt.NewRow();
+            dr = dtCadList.Rows[cur_index];
+            dt.ImportRow(dr);
+            FillDetailsListView(dt);
         }
 
         private void mnuGetInfoByCadastral_Click(object sender, EventArgs e)
         {
+            UpdateStatus(String.Format("Запрос информации по {0}", cur_cadastral), Cursors.AppStarting);
             GetInfoByCadastral(cur_cadastral);
+            XML.online_data.rosreestr_infoDataTable dt = new XML.online_data.rosreestr_infoDataTable();
+            DataRow dr = dt.NewRow();
+            dr = dtCadList.Rows[cur_index];
+            dt.ImportRow(dr);
+            FillDetailsListView(dt);
+            UpdateStatus("Готово", Cursors.Arrow);
         }
 
         private void GetInfoByCadastral(string cadastral)
@@ -229,21 +243,20 @@ namespace Rosreestr_Info
             if (dtInfo.Columns[0].ColumnName != "error")
             {
 
-                FillDetailsListView(dtInfo);
                 //tbx_p_cad_stoim.Text = Format(dtInfo(0)("p_stoim"), "C2")
-            //tbx_p_date_stoim.Text = dtInfo(0)("p_date_stoim")
-            //tbx_p_area.Text = Format(dtInfo(0)("p_area"), "N2")
-            //tbx_p_utilByDoc.Text = dtInfo(0)("p_utilByDoc")
-            //'TODO - закинуть в таблицу
-            //'Нужен индекс в таблице, соответствующий индексу в листвью
-            //dtCadList(lvCadastral.SelectedIndex)("p_cadastral") = dtInfo(0)("p_cadastral")
-            //dtCadList(lvCadastral.SelectedIndex)("p_stoim") = dtInfo(0)("p_stoim")
-            //dtCadList(lvCadastral.SelectedIndex)("p_date_stoim") = dtInfo(0)("p_date_stoim")
-            //dtCadList(lvCadastral.SelectedIndex)("p_area") = dtInfo(0)("p_area")
-            //dtCadList(lvCadastral.SelectedIndex)("p_utilByDoc") = dtInfo(0)("p_utilByDoc")
-            //dtCadList(lvCadastral.SelectedIndex)("p_status") = dtInfo(0)("p_status")
-            //dtCadList(lvCadastral.SelectedIndex)("p_status_str") = dtInfo(0)("p_status_str")
-            //dtCadList(lvCadastral.SelectedIndex)("checked") = "+"
+                //tbx_p_date_stoim.Text = dtInfo(0)("p_date_stoim")
+                //tbx_p_area.Text = Format(dtInfo(0)("p_area"), "N2")
+                //tbx_p_utilByDoc.Text = dtInfo(0)("p_utilByDoc")
+                //'TODO - закинуть в таблицу
+                //Нужен индекс в таблице, соответствующий индексу в листвью
+                dtCadList.Rows[cur_index]["p_cadastral"] = dtInfo.Rows[0]["p_cadastral"];
+                dtCadList.Rows[cur_index]["p_stoim"] = dtInfo.Rows[0]["p_stoim"];
+                dtCadList.Rows[cur_index]["p_date_stoim"] = dtInfo.Rows[0]["p_date_stoim"];
+                dtCadList.Rows[cur_index]["p_area"] = dtInfo.Rows[0]["p_area"];
+                dtCadList.Rows[cur_index]["p_utilByDoc"] = dtInfo.Rows[0]["p_utilByDoc"];
+                dtCadList.Rows[cur_index]["p_status"] = dtInfo.Rows[0]["p_status"];
+                dtCadList.Rows[cur_index]["p_status_str"] = dtInfo.Rows[0]["p_status_str"];
+                dtCadList.Rows[cur_index]["checked"] = "+";
 
             }
             else
@@ -254,7 +267,6 @@ namespace Rosreestr_Info
                 //tbx_p_utilByDoc.Text = "!Ошибка загрузки!"
 
             }
-            UpdateStatus("Готово", Cursors.Arrow);
 
         }
         private void FillDetailsListView(System.Data.DataTable dt)
@@ -287,5 +299,34 @@ namespace Rosreestr_Info
             }
         }
 
+        private void btnStartAll_Click(object sender, EventArgs e)
+        {
+            pb1.Minimum = 0;
+            pb1.Maximum = dtCadList.Rows.Count - 1;
+            for (cur_index = 0; cur_index < dtCadList.Rows.Count; cur_index++)
+            {
+                cur_cadastral = dtCadList.Rows[cur_index]["cadastral"].ToString();
+                GetInfoByCadastral(cur_cadastral);
+                pb1.Value = cur_index;
+                UpdateStatus(String.Format("Запрос информации по {0} ({1} из {2})", cur_cadastral, cur_index+1, pb1.Maximum + 1), Cursors.AppStarting);
+                TimeSpan interval = new TimeSpan(0,0,1);
+                System.Threading.Thread.Sleep(interval);
+            }
+            UpdateStatus("Готово", Cursors.Arrow);
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            OpenDataFile();
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult rc = MessageBox.Show("Сохранить данные?", "Внимание", MessageBoxButtons.YesNo);
+            if (rc == DialogResult.Yes)
+            {
+                SaveDataFile();
+            }
+        }
     }
 }
